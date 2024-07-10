@@ -10,8 +10,8 @@ export default function App() {
         <div className="w-screen">
             <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
             <SecNav />
-            <div className="flex flex-row">
-            <SideBar />
+            <div className="flex flex-row w-full">
+            {<SideBar />}
             {isOpen[0]?<Shop/>:" ffuuuu"}
             </div >
             

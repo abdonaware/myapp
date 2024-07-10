@@ -14,7 +14,7 @@ export default function Button({ value, buttonNO, isOpen, onClick }) {
             >
                 {value}
                 <svg
-                    className={`w-5 h-5 ml-16 items-end transition-transform duration-150 ${
+                    className={`w-5 h-5 ml-1 items-end transition-transform duration-150 ${
                         isOpen ? "rotate-180 stroke-red-500" : "rotate-0 stroke-current"
                     }`}
                     fill="none"

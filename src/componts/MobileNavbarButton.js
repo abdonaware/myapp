@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { MenuIcon } from "@heroicons/react/outline";
 
-export default function SecNav() {
+export default function Button() {
     const [isOpen, setIsOpen] = useState(false);
     const [onUse, setOnUse] = useState(0);
-    const sortArray = ["price", "added date", "new arrived"];
+    const sortArray = ["SHOP", "FABRIC", "JOURNAL","ABOUT"];
 
     const onClick = () => {
         setIsOpen(!isOpen);
@@ -16,10 +15,10 @@ export default function SecNav() {
         setOnUse(buttonNo);
         setIsOpen(false); // Close dropdown after selection
     };
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(true);
 
     const checkScreenSize = () => {
-        setIsSmallScreen(window.outerWidth < 480); // Adjust the width as needed
+        setIsSmallScreen(window.outerWidth > 480); // Adjust the width as needed
     };
     useEffect(() => {
         checkScreenSize();
@@ -27,10 +26,9 @@ export default function SecNav() {
     });
 
     return (
-        <div className="relative flex flex-row-reverse justify-around bg-indigo-100">
-            <div className="flex flex-row">
-                <span className="m-4 ">Sort by</span>
-                <div className="flex flex-col items-start my-auto mr-10 relative">
+        <div className="relative flex flex-row-reverse justify-around">
+            
+                <div className="flex flex-col items-start my-auto  relative">
                     <button
                         onClick={onClick}
                         className="flex items-center border text-black border-black px-4 py-2 rounded transition duration-300"
@@ -78,9 +76,8 @@ export default function SecNav() {
                         </div>
                     </Transition>
                 </div>
-            </div>
-            <span className="m-4">Women</span>
-            {isSmallScreen?(<button><MenuIcon  className="w-6 h-6 text-gray-600 my-auto"  /></button>):""}
+            
+            
         </div>
     );
 }

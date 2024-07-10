@@ -11,8 +11,8 @@ export default function SideBar() {
         setIsOpen(newIsOpen);
     }
     return (
-        <div className="h-screen w-1/6 bg-indigo-200">
-            <div className=" flex flex-col  duration-300  min-h-max  w-full bg-indigo-200">
+        <div className="h-screen  w-1/6 min-w-40 bg-indigo-200">
+            <div className=" flex flex-col  duration-300  min-h-max overflow-y-auto w-full bg-indigo-200">
                 <Button
                     value={"Apparels"}
                     buttonNO={0}
