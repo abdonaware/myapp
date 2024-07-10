@@ -3,18 +3,18 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { MenuIcon } from "@heroicons/react/outline";
 
-export default function SecNav() {
-    const [isOpen, setIsOpen] = useState(false);
+export default function SecNav({isOpen, setIsOpen}) {
+    const [listOpen, setlistOpen] = useState(false);
     const [onUse, setOnUse] = useState(0);
     const sortArray = ["price", "added date", "new arrived"];
 
     const onClick = () => {
-        setIsOpen(!isOpen);
+        setlistOpen(!listOpen);
     };
 
     const list_click = (buttonNo) => {
         setOnUse(buttonNo);
-        setIsOpen(false); // Close dropdown after selection
+        setlistOpen(false); // Close dropdown after selection
     };
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -25,6 +25,10 @@ export default function SecNav() {
         checkScreenSize();
         window.addEventListener("resize", checkScreenSize);
     });
+    const menuclick =()=>{
+        setIsOpen(!isOpen);
+
+    }
 
     return (
         <div className="relative flex flex-row-reverse justify-around bg-indigo-100">
@@ -38,7 +42,7 @@ export default function SecNav() {
                         <span>{sortArray[onUse]}</span>
                         <svg
                             className={`w-5 h-5 ml-2 transition-transform duration-300 ${
-                                isOpen ? "rotate-180" : "rotate-0"
+                                listOpen ? "rotate-180" : "rotate-0"
                             }`}
                             fill="none"
                             stroke="currentColor"
@@ -54,7 +58,7 @@ export default function SecNav() {
                         </svg>
                     </button>
                     <Transition
-                        show={isOpen}
+                        show={listOpen}
                         enter="transition-opacity duration-300"
                         enterFrom="opacity-0"
                         enterTo="opacity-100"
@@ -80,7 +84,7 @@ export default function SecNav() {
                 </div>
             </div>
             <span className="m-4">Women</span>
-            {isSmallScreen?(<button><MenuIcon  className="w-6 h-6 text-gray-600 my-auto"  /></button>):""}
+            {isSmallScreen?(<button  onClick={menuclick}><MenuIcon  className="w-6 h-6 text-gray-600 my-auto"  /></button>):""}
         </div>
     );
 }

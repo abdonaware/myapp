@@ -73,7 +73,7 @@ export default function Navbar({ isOpen, setIsOpen }) {
                         />
                     </>
                 ) : (
-                   <Button/>
+                    <Button pageVeiw={isOpen} setpageVeiw={setIsOpen} handleClick={{Handelclick}} />
                 )}
                 <span className="flex flex-row-reverse w-full">
                     <button className="flex items-center m-2 sm:m-5 rounded-full hover:bg-gray-300 transition-colors">
